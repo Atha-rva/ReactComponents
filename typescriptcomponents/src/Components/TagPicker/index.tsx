@@ -14,40 +14,25 @@ import {
 import { useStyles } from "./indexcss";
 import { ZLogo } from "zitics-core-ui";
 
-const initialOptions = [
-  "Atharva",
-  "Alok",
-  "Ananya",
-  "Girish",
-  "Gokul",
-  "Gopal",
-  "Gulab",
-];
-
 interface MyComponentProps {
   className: string;
+  fieldName: string;
 }
 
 const ZTagError =
   "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
 
-const TagPickerContainer: React.FC<MyComponentProps> = ({ className }) => {
-  const [selectedOptions, setSelectedOptions] = React.useState<string[]>([
-    initialOptions[0],
-  ]);
+const TagPickerContainer: React.FC<MyComponentProps> = ({ className, fieldName }) => {
+  const [selectedOptions, setSelectedOptions] = React.useState<string[]>([]);
   const [inputValue, setInputValue] = React.useState<string>("");
-  const [options, setOptions] = React.useState<string[]>(initialOptions);
+  const [options, setOptions] = React.useState<string[]>([]);
   const classes = useStyles();
 
-  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (
-    event
-  ) => {
+  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.key === "Enter") {
       const trimmedValue = inputValue.trim();
       if (trimmedValue && !options.includes(trimmedValue)) {
@@ -62,60 +47,42 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({ className }) => {
     setSelectedOptions([]);
   };
 
-  const handleOptionSelect: TagPickerProps["onOptionSelect"] = (
-    event,
-    data
-  ) => {
+  const handleOptionSelect: TagPickerProps["onOptionSelect"] = (event, data) => {
     setSelectedOptions(data.selectedOptions);
   };
 
   const tagPickerOptions = options.filter(
-    (option) => !selectedOptions.includes(option)
+    (option) =>
+      !selectedOptions.includes(option) && option.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   return (
-    <Field label="GSTIN">
-      <TagPicker
-        onOptionSelect={handleOptionSelect}
-        selectedOptions={selectedOptions}
-      >
+    <Field label={fieldName}>
+      <TagPicker onOptionSelect={handleOptionSelect} selectedOptions={selectedOptions} size={"large"}>
         <TagPickerControl className={classes.ZTagPicker} expandIcon={null}>
           <TagPickerGroup>
             {selectedOptions.map((option) => (
-              <Tag
-                key={option}
-                value={option}
-                className={classes.ZTagInsideSelect}
-              >
+              <Tag key={option} value={option} className={classes.ZTagInsideSelect} shape={"circular"}>
                 {option}
               </Tag>
             ))}
           </TagPickerGroup>
           <TagPickerInput
-            aria-label="Select Employees"
             value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
+            
           />
-          <Button
-            appearance="transparent"
-            size="small"
-            shape="rounded"
-            onClick={handleAllClear}
-          >
+          <Button appearance="transparent" size="large" shape="rounded" onClick={handleAllClear}>
             <ZLogo className={classes.ZCrossBtn} src={ZTagError} />
           </Button>
         </TagPickerControl>
-        <TagPickerList>
-          {tagPickerOptions.length > 0 ? (
-            tagPickerOptions.map((option) => (
-              <TagPickerOption key={option} value={option}>
-                {option}
-              </TagPickerOption>
-            ))
-          ) : (
-            <span>No options available</span>
-          )}
+        <TagPickerList className={classes.ZTagPickerList}>
+          {tagPickerOptions.map((option) => (
+            <TagPickerOption key={option} value={option}>
+              {option}
+            </TagPickerOption>
+          ))}
         </TagPickerList>
       </TagPicker>
     </Field>
