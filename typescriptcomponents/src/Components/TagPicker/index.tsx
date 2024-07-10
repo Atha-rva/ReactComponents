@@ -22,17 +22,24 @@ interface MyComponentProps {
 const ZTagError =
   "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
 
-const TagPickerContainer: React.FC<MyComponentProps> = ({ className, fieldName }) => {
+const TagPickerContainer: React.FC<MyComponentProps> = ({
+  className,
+  fieldName,
+}) => {
   const [selectedOptions, setSelectedOptions] = React.useState<string[]>([]);
   const [inputValue, setInputValue] = React.useState<string>("");
   const [options, setOptions] = React.useState<string[]>([]);
   const classes = useStyles();
 
-  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     setInputValue(event.target.value);
   };
 
-  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+  const handleInputKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     if (event.key === "Enter") {
       const trimmedValue = inputValue.trim();
       if (trimmedValue && !options.includes(trimmedValue)) {
@@ -47,22 +54,35 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({ className, fieldName }
     setSelectedOptions([]);
   };
 
-  const handleOptionSelect: TagPickerProps["onOptionSelect"] = (event, data) => {
+  const handleOptionSelect: TagPickerProps["onOptionSelect"] = (
+    event,
+    data
+  ) => {
     setSelectedOptions(data.selectedOptions);
   };
 
   const tagPickerOptions = options.filter(
     (option) =>
-      !selectedOptions.includes(option) && option.toLowerCase().includes(inputValue.toLowerCase())
+      !selectedOptions.includes(option) &&
+      option.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   return (
     <Field label={fieldName}>
-      <TagPicker onOptionSelect={handleOptionSelect} selectedOptions={selectedOptions} size={"large"}>
+      <TagPicker
+        onOptionSelect={handleOptionSelect}
+        selectedOptions={selectedOptions}
+        size={"large"}
+      >
         <TagPickerControl className={classes.ZTagPicker} expandIcon={null}>
           <TagPickerGroup>
             {selectedOptions.map((option) => (
-              <Tag key={option} value={option} className={classes.ZTagInsideSelect} shape={"circular"}>
+              <Tag
+                key={option}
+                value={option}
+                className={classes.ZTagInsideSelect}
+                shape={"circular"}
+              >
                 {option}
               </Tag>
             ))}
@@ -71,9 +91,13 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({ className, fieldName }
             value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
-            
           />
-          <Button appearance="transparent" size="large" shape="rounded" onClick={handleAllClear}>
+          <Button
+            appearance="transparent"
+            size="large"
+            shape="rounded"
+            onClick={handleAllClear}
+          >
             <ZLogo className={classes.ZCrossBtn} src={ZTagError} />
           </Button>
         </TagPickerControl>

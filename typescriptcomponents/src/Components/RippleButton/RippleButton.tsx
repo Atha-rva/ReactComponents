@@ -16,13 +16,13 @@ const RippleButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
     };
 
     return (
-        <button className="ripple-button" onClick={createRipple} {...props}>
+        <Button className="ripple-button" onClick={createRipple} {...props}>
             {ripples.map(({ x, y, size }, i) => (
                 <span key={i} className="ripple" style={{ width: size, height: size, top: y, left: x }} />
             ))}
             {children}
             Click Me 
-        </button>
+        </Button>
     );
 };
 

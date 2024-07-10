@@ -101,6 +101,13 @@ export const useStyles = makeStyles({
     width: "auto",
     wordBreak: "break-word",
     fontFamily: "Lato",
+    ">span>svg": {
+      color: "black",
+      backgroundColor: "white",
+      borderRadius: "50%",
+      fontSize: "10px !important",
+      fontWeight:"700",
+    }
   },
   ZTagPickerListContent: {
     ...shorthands.border("2px", "solid", "lightgreen"), 
@@ -114,4 +121,24 @@ export const useStyles = makeStyles({
       backgroundColor: "#616161",
     }
   },
+  tagPickerOptionContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    ">div>span": {
+      fontSize: "12px",
+      fontWeight: "600",
+      marginLeft: "5px",
+      backgroundColor:"green",
+    },
+    '&:hover': {
+      color: "white",
+      backgroundColor:"#616161",
+    }
+  },
+  ZLine: {
+    width: "auto",
+    height:"1px",
+    backgroundColor:"transparent",
+  }
 });

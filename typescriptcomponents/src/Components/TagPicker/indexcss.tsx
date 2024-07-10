@@ -1,28 +1,35 @@
-import { makeStyles} from "zitics-core-ui";
+import { makeStyles } from "zitics-core-ui";
 
 export const useStyles = makeStyles({
   ZTagPicker: {
     borderRadius: "7px",
-        border: "1px solid black !important",
-    ':active': {
-        border: "1px solid black !important",
+    border: "1px solid black !important",
+    ":active": {
+      border: "1px solid black !important",
     },
-    ':after': {
+    ":after": {
       content: "",
       border: "1px solid black !important",
-    }
+    },
   },
   ZTagInsideSelect: {
     borderRadius: "10px",
     backgroundColor: "#616161",
-      color: "white",
+    color: "white",
     height: "24px",
-      fontSize:"12px !important",
+    fontSize: "12px !important",
     width: "auto",
     wordBreak: "break-word",
     fontFamily: "Lato",
+    ">span>svg": {
+      color: "black",
+      backgroundColor: "white",
+      borderRadius: "50%",
+      fontSize: "10px !important",
+      fontWeight: "700",
+    },
   },
-  
+
   ZTagSec: {
     display: "flex",
     gap: "10px",
@@ -35,7 +42,6 @@ export const useStyles = makeStyles({
     cursor: "pointer",
   },
   ZTagPickerList: {
-    display:"none"
+    display: "none",
   },
-  
 });

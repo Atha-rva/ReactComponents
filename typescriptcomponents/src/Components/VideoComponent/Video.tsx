@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactNode } from "react";
 import { Image, mergeClasses } from "@fluentui/react-components";
-import { useStyles } from "./ZVideocss";
+import { useStyles } from "./Videocss";
 import { FullScreenMaximizeFilled } from "@fluentui/react-icons";
 
 interface ZVideoProps {

@@ -9,7 +9,7 @@ import {
   SearchBox,
 
 } from "@fluentui/react-components";
-import { useStyle } from "./ZAvatarScrollcss";
+import { useStyle } from "./AvatarScrollcss";
 // import "./style.css";
 
  

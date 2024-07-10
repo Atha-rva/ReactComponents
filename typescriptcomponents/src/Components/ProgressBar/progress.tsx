@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useStyles } from "./Zprogresscss";
+import { useStyles } from "./progresscss";
 import { mergeClasses } from "@fluentui/react-components";
 
 interface CircularProgressProps {
