@@ -1,0 +1,9 @@
+* Note :- 
+
+Refer it  for Configuration from Offical Site .
+
+
+Note :- 
+Why we use a Eslint....?
+
+* We Can Remove UnWanted Error Which are not being used in code but then also it is present in that code...
