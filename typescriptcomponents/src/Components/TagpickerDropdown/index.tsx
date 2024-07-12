@@ -105,9 +105,7 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
                   checked={selectedOptions.includes(option)}
                   onChange={(event) => handleCheckboxChange(event, option)}
                   className={classes.tagPickerOptionContainer}
-                  
-                >
-                </Checkbox>
+                />
                 </div>
               ))
             : "No options available"}

@@ -1,0 +1,18 @@
+Map Method in reactJS 
+
+
+map() method is an array method that creates a new array by calling a provided function on every element in the original array.
+
+* Creates a new array: It doesn't modify the original array.
+
+* Iterates over all elements: It applies the provided function to each element of the array.
+
+* Returns a new array: The new array contains the results of calling the provided function on each element.
+
+* Function arguments: The function passed to map() can take three arguments:
+
+* currentValue: The current element being processed in the array.
+
+* index (optional): The index of the current element being processed in the array.
+
+* array (optional): The array map was called upon.

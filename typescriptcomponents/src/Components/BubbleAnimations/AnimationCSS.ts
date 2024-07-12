@@ -1,4 +1,4 @@
-import { colorSchema, makeStyles , shorthands } from "zitics-core-ui";
+import { makeStyles , shorthands } from "zitics-core-ui";
 
 export const useStyles = makeStyles({
     body: {
@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         position: "absolute",
         height: "100vh",
         width: "100%",
-        background: `linear-gradient(-45deg, ${colorSchema.gradient.fullPraposalLeft}, ${colorSchema.gradient.fullPraposalRight},  ${colorSchema.gradient.fullPraposalLeft}, ${colorSchema.gradient.fullPraposalRight})`,
+        background: `linear-gradient(-45deg, green, lightgreen,  blue, lightblue)`,
         backgroundSize: "400% 400%",
         animationName: {
             "0%": { backgroundPosition: "0% 0%" },
