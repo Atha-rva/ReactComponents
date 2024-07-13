@@ -10,7 +10,9 @@ import { Appearance } from './Components/Button';
 import { InputComponent } from './Components/Input';
 // import ZRadio from './Components/Radio';
 import { RadioBtn } from './Components/RadioButton';
-import { useStyles } from './Components/style';
+import { useStyles } from './style';
+import  { AppearanceBtn } from './Components/VarientButton';
+import { ToastApplication } from './Components/Toast';
 
 
 function App() {
@@ -23,8 +25,10 @@ function App() {
 
       {/* <ZRadio ZradioLabel={'Atharv'} Zvalue={["Yes","No"]} Zdisabled={false} zhide={false}/> */}
 
-      <RadioBtn ZGlobalLabel='Applicable Companies' Zlabel={["Yes", "No"]} Zhide={false} />
-     
+      {/* <RadioBtn ZGlobalLabel='Applicable Companies' Zlabel={["Yes", "No"]} Zhide={false} /> */}
+      {/* <VarientButton/> */}
+      {/* <AppearanceBtn /> */}
+     <ToastApplication/>
     </div>
   );
 }
