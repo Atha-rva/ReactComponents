@@ -7,8 +7,6 @@ import {
   shorthands,
 } from "@fluentui/react-components";
 
-
-
 const useStaticStyles = makeStaticStyles({
   ".rg1upok:enabled:checked ~ .fui-Radio__indicator": {
     borderColor: "black",
@@ -31,31 +29,38 @@ const useStaticStyles = makeStaticStyles({
   ".rg1upok:disabled ~ .fui-Radio__indicator": {
     width: "30px",
     height: "30px",
-  }
-}); 
+  },
+});
 
 interface RadioProps {
   ZGlobalLabel: string;
   Zlabel: string[];
-  Zhide: boolean;
+  Zhide?: boolean;
+  className?: string;
+  Radioclass?: string;
+  RadioGroupclass?: string;
 }
 
 export const RadioBtn: React.FC<Partial<RadioProps>> = ({
-  ZGlobalLabel,
-  Zlabel,
-  Zhide,
+  ZGlobalLabel = "",
+  Zlabel = [],
+  Zhide = false,
+  className = "",
+  Radioclass = "",
+  RadioGroupclass = "",
 }) => {
   useStaticStyles();
-  
-  if (Zhide) { 
+
+  if (Zhide) {
     return null;
   }
+
   return (
-    <Field >
-      <label style={{marginLeft:"10px"}} >{ZGlobalLabel}</label>
-      <RadioGroup layout="horizontal">
+    <Field className={className}>
+      <label style={{ marginLeft: "10px" }}>{ZGlobalLabel}</label>
+      <RadioGroup layout="horizontal" className={RadioGroupclass}>
         {Zlabel?.map((label, index) => (
-          <Radio key={index} label={label} />
+          <Radio key={index} label={label} className={Radioclass} />
         ))}
       </RadioGroup>
     </Field>

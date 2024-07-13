@@ -10,9 +10,11 @@ import { Appearance } from './Components/Button';
 import { InputComponent } from './Components/Input';
 // import ZRadio from './Components/Radio';
 import { RadioBtn } from './Components/RadioButton';
+import { useStyles } from './Components/style';
 
 
 function App() {
+  const classes = useStyles();
   return (
     <div className="App">
       {/* <InputComponent fieldName='Email*'/>
@@ -21,7 +23,7 @@ function App() {
 
       {/* <ZRadio ZradioLabel={'Atharv'} Zvalue={["Yes","No"]} Zdisabled={false} zhide={false}/> */}
 
-      <RadioBtn ZGlobalLabel='Applicable Companies' Zlabel={["Yes", "No",]} Zhide={false} />
+      <RadioBtn ZGlobalLabel='Applicable Companies' Zlabel={["Yes", "No"]} Zhide={false} />
      
     </div>
   );
