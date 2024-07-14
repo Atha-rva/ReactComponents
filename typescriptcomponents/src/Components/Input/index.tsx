@@ -1,6 +1,7 @@
 import * as React from "react";
 import { makeStyles, useId, Input, Label, makeStaticStyles, shorthands, Field } from "@fluentui/react-components";
 
+
 const inputarray=["Email*"]
 const useStyles = makeStyles({
   root: {
@@ -24,10 +25,11 @@ const useGlobalStyles = makeStaticStyles({
 
 type InputProps = {
   fieldName: string;
+  style: React.CSSProperties;
 };
 
 
-export const InputComponent: React.FC<Partial<InputProps>> = ({fieldName}) => {
+export const InputComponent: React.FC<Partial<InputProps>> = ({fieldName , style}) => {
   const styles = useStyles();
   useGlobalStyles();
 
@@ -36,7 +38,7 @@ export const InputComponent: React.FC<Partial<InputProps>> = ({fieldName}) => {
       {inputarray.map((fieldName,index) => {
         return (
           <Field label={fieldName} key={index}>
-            <Input className={styles.Input} />
+            <Input className={styles.Input} style={style} />
           </Field>
           )
       })

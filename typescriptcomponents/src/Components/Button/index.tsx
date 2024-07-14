@@ -6,6 +6,10 @@ import {
   CalendarMonthRegular,
 } from "@fluentui/react-icons";
 
+interface AppearanceBtnProps{
+  style: React.CSSProperties;
+}
+
 const CalendarMonth = bundleIcon(CalendarMonthFilled, CalendarMonthRegular);
 
 const useStyles = makeStyles({
@@ -22,12 +26,12 @@ const useStyles = makeStyles({
   },
 });
 
-export const Appearance = () => {
+export const Appearance: React.FC<Partial<AppearanceBtnProps>> = ({style}) => {
   const styles = useStyles();
 
   return (
     <div className={styles.wrapper}>
-      <Button className={styles.AButton}>Add</Button>
+      <Button className={styles.AButton} style={style}>Add</Button>
       {/* <Button appearance="primary" >
         Primary
       </Button>

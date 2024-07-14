@@ -14,6 +14,7 @@ import { useStyles } from "./style";
 import { AppearanceBtn } from "./Components/VarientButton";
 import { ToastApplication } from "./Components/Toast";
 import { TagComponent } from "./Components/Tag";
+import { DefaultModel } from "./Components/ModelComponent";
 
 function App() {
   const classes = useStyles();
@@ -28,7 +29,8 @@ function App() {
       {/* <RadioBtn ZGlobalLabel='Applicable Companies' Zlabel={["Yes", "No"]} Zhide={false} /> */}
       {/* <VarientButton/> */}
       {/* <AppearanceBtn /> */}
-      <TagComponent />
+      {/* <TagComponent /> */}
+      <DefaultModel/>
     </div>
   );
 }
