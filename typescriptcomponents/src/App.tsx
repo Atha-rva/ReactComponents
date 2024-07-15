@@ -15,6 +15,11 @@ import { AppearanceBtn } from "./Components/VarientButton";
 import { ToastApplication } from "./Components/Toast";
 import { TagComponent } from "./Components/Tag";
 import { DefaultModel } from "./Components/ModelComponent";
+import VerticalLayout from "./Components/LayoutComponent";
+import { Actions } from "./Components/DialogBox/Dialog";
+import { NoteModel } from "./Components/NoteModel";
+import { XChangeNoteModel } from "./Components/XChangeNoteModel";
+import { AvatarBadge } from "./Components/AvatarComponent";
 
 function App() {
   const classes = useStyles();
@@ -30,7 +35,10 @@ function App() {
       {/* <VarientButton/> */}
       {/* <AppearanceBtn /> */}
       {/* <TagComponent /> */}
-      <DefaultModel/>
+      {/* <DefaultModel/> */}
+      {/* <NoteModel /> */}
+      {/* <XChangeNoteModel/> */}
+      <AvatarBadge name="Atharva Deelip Deshmukh" status="busy"/>
     </div>
   );
 }

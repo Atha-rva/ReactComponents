@@ -19,7 +19,7 @@ const useStaticStyle = makeStaticStyles({
   },
 });
 
-export const NoteModel = () => {
+export const XChangeNoteModel = () => {
   useStaticStyle();
   return (
     <Dialog>
@@ -27,17 +27,16 @@ export const NoteModel = () => {
         <Button>Open dialog</Button>
       </DialogTrigger>
       <DialogSurface
-        style={{ width: "520px", height: "260px", borderRadius: "16px" }}
+        style={{ width: "360px", height: "220px", borderRadius: "16px" }}
       >
         <DialogBody
           style={{
-            width: "440px",
+            width: "auto",
             height: "auto",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            marginLeft: "15px",
           }}
         >
           <DialogContent
@@ -52,8 +51,7 @@ export const NoteModel = () => {
                 fontSize: "18px",
               }}
             >
-              {" "}
-              This organisation is already registered in our database.
+              Proposal added in XChange section
             </span>
             <span
               style={{
@@ -63,8 +61,7 @@ export const NoteModel = () => {
                 fontSize: "18px",
               }}
             >
-              {" "}
-              You need to ask permission from admin to access this
+              Do you want to start adding the
             </span>
             <span
               style={{
@@ -74,18 +71,7 @@ export const NoteModel = () => {
                 fontSize: "18px",
               }}
             >
-              organisation.
-            </span>
-            <span
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "20px",
-                fontSize: "18px",
-              }}
-            >
-              Do you want to send a request for access?
+              data to complete the proposal?
             </span>
           </DialogContent>
           <DialogActions>
@@ -95,7 +81,7 @@ export const NoteModel = () => {
                   width: "100px",
                   height: "40px",
                   borderRadius: "10px",
-                  marginTop: "30px",
+                  marginTop: "34px",
                 }}
               />
             </DialogTrigger>

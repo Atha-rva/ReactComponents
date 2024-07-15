@@ -10,7 +10,7 @@ interface AppearanceBtnProps{
   style: React.CSSProperties;
 }
 
-const CalendarMonth = bundleIcon(CalendarMonthFilled, CalendarMonthRegular);
+
 
 const useStyles = makeStyles({
   wrapper: {

@@ -1,0 +1,8 @@
+**** ReactJS ****
+
+* ReactJS is a declarative , efficent and flexible  Javascript library for building a reusable components.... 
+* It is an  Open-source,component-based frontend library which is responsible only for the view layer of the application.... 
+
+Note :- 
+		*  It uses virtual DOM (Javascript object), which improves the performance of the app 
+
