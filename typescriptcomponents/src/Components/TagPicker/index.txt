@@ -1,7 +1,14 @@
+
+
+// Code for TagPicker Container with Dropdown and InfoLabel
+
+
 import * as React from "react";
 import {
   Button,
   Field,
+  InfoLabel,
+  Link,
   Tag,
   TagPicker,
   TagPickerControl,
@@ -10,6 +17,7 @@ import {
   TagPickerList,
   TagPickerOption,
   TagPickerProps,
+  InfoLabelProps,
 } from "@fluentui/react-components";
 import { useStyles } from "./indexcss";
 import { ZLogo } from "zitics-core-ui";
@@ -22,10 +30,9 @@ interface MyComponentProps {
 const ZTagError =
   "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
 
-const TagPickerContainer: React.FC<MyComponentProps> = ({
-  className,
-  fieldName,
-}) => {
+const TagPickerContainer: React.FC<
+  Partial<MyComponentProps & InfoLabelProps & TagPickerProps>
+> = ({ className, fieldName, ...props }) => {
   const [selectedOptions, setSelectedOptions] = React.useState<string[]>([]);
   const [inputValue, setInputValue] = React.useState<string>("");
   const [options, setOptions] = React.useState<string[]>([]);
@@ -68,7 +75,19 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({
   );
 
   return (
-    <Field label={fieldName} className={classes.ZTagContainer}>
+    <Field>
+      <InfoLabel
+        info={
+          <>
+            This is example information for an InfoLabel.{" "}
+            <Link href="https://zitics.com/">Learn More</Link>
+          </>
+        }
+        className={classes.ZTagContainer}
+        {...props}
+      >
+        {fieldName}
+      </InfoLabel>
       <TagPicker
         onOptionSelect={handleOptionSelect}
         selectedOptions={selectedOptions}
@@ -114,4 +133,5 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({
 };
 
 export default TagPickerContainer;
+
 

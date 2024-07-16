@@ -13,7 +13,8 @@ export const useStyles = makeStyles({
     },
   },
   ZTagContainer: {
-    marginTop:"20px",
+    marginTop: "20px",
+    marginBottom: "20px",
   },
   ZTagInsideSelect: {
     borderRadius: "10px",

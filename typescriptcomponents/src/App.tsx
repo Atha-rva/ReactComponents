@@ -61,8 +61,9 @@ function App() {
         varient="small"
         options={["ABC", "XYZ", "HHH"]}
       /> */}
-      <AlignmentComponent />
-      <HorizontalAlignmentComponent/>
+      {/* <AlignmentComponent /> */}
+      {/* <HorizontalAlignmentComponent/> */}
+      <TagPickerContainer fieldName="Companies" className={""}/>
     </div>
   );
 }
