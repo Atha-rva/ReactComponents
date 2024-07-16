@@ -3,6 +3,12 @@ import * as React from "react";
 import { makeStyles, tokens, Tooltip } from "@fluentui/react-components";
 import type { TooltipProps } from "@fluentui/react-components";
 
+
+interface ZTooltipProps extends TooltipProps {
+  disabled?: boolean
+}
+
+
 const useStyles = makeStyles({
   tooltip: {
     backgroundColor: tokens.colorBrandBackground,
@@ -10,8 +16,12 @@ const useStyles = makeStyles({
   },
 });
 
-export const ZToolTip = (props: Partial<TooltipProps>) => {
+export const ZToolTip = ({disabled = false,...props}: Partial<ZTooltipProps>) => {
   const styles = useStyles();
+
+  if (disabled) {
+    return null;
+  }
     return (
         <div   style={{
           display: "grid",

@@ -68,7 +68,7 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({
   );
 
   return (
-    <Field label={fieldName}>
+    <Field label={fieldName} className={classes.ZTagContainer}>
       <TagPicker
         onOptionSelect={handleOptionSelect}
         selectedOptions={selectedOptions}

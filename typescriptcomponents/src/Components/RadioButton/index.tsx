@@ -4,7 +4,6 @@ import {
   makeStaticStyles,
   Radio,
   RadioGroup,
-  shorthands,
 } from "@fluentui/react-components";
 
 const useStaticStyles = makeStaticStyles({

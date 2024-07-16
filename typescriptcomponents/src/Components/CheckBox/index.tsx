@@ -1,32 +1,64 @@
-import { Checkbox, Field } from '@fluentui/react-components';
-import React from 'react';
-import { useStyles } from './indexcss';
+import { Checkbox, CheckboxProps, Field } from "@fluentui/react-components";
+import React from "react";
+import { makeStaticStyles, makeStyles } from "zitics-core-ui";
 
-interface MyComponentProps {
-    Zlabel: string;
-    Zcheckboxlabel: string[];
-}
+type MyComponentProps = CheckboxProps & {
+  Zlabel: string;
+  Zcheckboxlabel: string[];
+  className?: string;
+  style?: React.CSSProperties;
+};
 
-const ZCheckBoxBtn: React.FC<MyComponentProps> = ({ Zlabel, Zcheckboxlabel }) => {
-    const classes = useStyles();
+const useStaticStyles = makeStaticStyles({
+  ".f64fuq3": {
+    width: "30px",
+    height: "30px",
+    borderRadius: "8px",
+  },
+  ".rl7ci6d": {
+    color: "white",
+  },
+});
 
+const useStyles = makeStyles({
+  label: {
+    marginLeft: "10px",
+    fontSize: "14px",
+  },
+  checkboxContainer: {
+    display: "flex",
+    gap: "20px",
+    marginTop: "20px",
+  },
+});
 
-    return (
-        <Field>
-            <label style={{ marginLeft: "10px", fontSize: "14px" }}>{Zlabel}</label>
-            <div style={{ display: "flex", gap: "100px", marginTop: "20px" }}>
-                {Zcheckboxlabel.map((activity, index) => (
-                    <Checkbox
-                        key={index}
-                        className={classes.ZRadioRoot}
-                        size="large"
-                        label={activity}
-                        
-                    />
-                ))}
-            </div>
-        </Field>
-    );
+const ZCheckBoxBtn: React.FC<MyComponentProps> = ({
+  Zlabel = "",
+  Zcheckboxlabel = [],
+  className = "",
+  style = {},
+  ...props
+}) => {
+  const styles = useStyles();
+  useStaticStyles();
+
+  return (
+    <Field>
+      <label style={{ marginLeft: "8px" }}>{Zlabel}</label>
+      <div className={styles.checkboxContainer}>
+        {Zcheckboxlabel.map((activity, index) => (
+          <Checkbox
+            className={className}
+            key={index}
+            size="large"
+            label={activity}
+            style={style}
+            {...props}
+          />
+        ))}
+      </div>
+    </Field>
+  );
 };
 
 export default ZCheckBoxBtn;
