@@ -25,7 +25,7 @@ import "./App.css";
 // // import { RadioBtn } from "./Components/RadioButton";
 // import { ZRadio, ZThreeDotHamburg } from "zitics-core-ui";
 // import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
-// import { NotificationPopover } from "./Components/SearchWithDropdown";
+import { NotificationPopover, SearchWithDropdown } from "./Components/SearchWithDropdown";
 // import { ZPopover } from "./Components/PopOver";
 // import { AlignmentComponent } from "./Components/VerticalAlignment.tsx";
 // import { HorizontalAlignmentComponent } from "./Components/HorizontalAlignment";
@@ -39,6 +39,8 @@ import EditIcon from "../src/Components/ThreeDotDropdown/PencilImg.svg";
 import DeleteIcon from "../src/Components/ThreeDotDropdown/DeleteLogo.svg";
 import { Line } from "./Components/Divider";
 import { OrganisationStatus } from "./Components/StatusOrganization";
+import { SpinnerContainer } from "./Components/Spinner";
+import ASpinner from "./Components/Spinner/ASpinner";
 
 function App() {
   // const classes = useStyles();
@@ -59,6 +61,50 @@ function App() {
   const handleChange = (label: string) => {
     console.log("Selected Item", label);
   };
+
+
+
+
+  // const searchDropdownProps = {
+  //   placeholder: 'Search...',
+  //   options: ['Option 1', 'Option 2', 'Option 3'],
+  //   linkLabel: 'See more results',
+  //   varient: 'large',
+  // };
+
+  // const notificationPopoverProps = {
+  //   btnData: {}, // your button data here
+  //   tabs: [
+  //     {
+  //       heading: {
+  //         label: 'Tab 1',
+  //         notificationNum: 3,
+  //       },
+  //       data: [
+  //         { label: 'Notification 1', time: '2 mins ago', read: true },
+  //         { label: 'Notification 2', time: '1 hour ago', read: false },
+  //         { label: 'Notification 1', time: '2 mins ago', read: true },
+  //         { label: 'Notification 2', time: '1 hour ago', read: false },
+  //         { label: 'Notification 1', time: '2 mins ago', read: true },
+  //         { label: 'Notification 2', time: '1 hour ago', read: false },
+  //           { label: 'Notification 1', time: '2 mins ago', read: true },
+  //         { label: 'Notification 2', time: '1 hour ago', read: false },
+  //       ],
+  //     },
+  //     {
+  //       heading: {
+  //         label: 'Tab 2',
+  //         notificationNum: 5,
+  //       },
+  //       data: [
+  //         { label: 'Notification 3', time: '1 day ago', read: true },
+  //         { label: 'Notification 4', time: '2 days ago', read: false },
+  //       ],
+  //     },
+      
+  //   ],
+  //   label: 'Notifications',
+  // };
   return (
     <div className="App">
       {/* <InputComponent fieldName='Email*'/>
@@ -98,7 +144,11 @@ function App() {
         borderColor="#A869E9"
         onChange={handleChange}
       /> */}
-      <OrganisationStatus handleSetSelectedItems={undefined}/>
+      {/* <OrganisationStatus handleSetSelectedItems={undefined}/> */}
+      {/* <SpinnerContainer/> */}
+      {/* <ASpinner/> */}
+      {/* <SearchWithDropdown {...searchDropdownProps} /> */}
+      {/* <NotificationPopover {...notificationPopoverProps} /> */}
     </div>
   );
 }
