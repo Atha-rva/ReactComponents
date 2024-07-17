@@ -10,7 +10,7 @@ import "./App.css";
 // import { InputComponent } from "./Components/Input";
 // // import ZRadio from './Components/Radio';
 // import { RadioBtn } from "./Components/RadioButton";
-import { useStyles } from "./style";
+// import { useStyles } from "./style";
 // import { AppearanceBtn } from "./Components/VarientButton";
 // import { ToastApplication } from "./Components/Toast";
 // import { TagComponent } from "./Components/Tag";
@@ -20,20 +20,31 @@ import { useStyles } from "./style";
 // import { NoteModel } from "./Components/NoteModel";
 // import { XChangeNoteModel } from "./Components/XChangeNoteModel";
 // import { AvatarBadge } from "./Components/AvatarComponent";
-import TagPickerContainer from "./Components/TagPicker";
-import ZCheckBoxBtn from "./Components/CheckBox";
-// import { RadioBtn } from "./Components/RadioButton";
-import { ZRadio } from "zitics-core-ui";
-import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
-import { NotificationPopover } from "./Components/SearchWithDropdown";
-import { ZPopover } from "./Components/PopOver";
-import { AlignmentComponent } from "./Components/VerticalAlignment.tsx";
-import { HorizontalAlignmentComponent } from "./Components/HorizontalAlignment";
-import { Line } from "./Components/Divider";
+// import TagPickerContainer from "./Components/TagPicker";
+// import ZCheckBoxBtn from "./Components/CheckBox";
+// // import { RadioBtn } from "./Components/RadioButton";
+// import { ZRadio, ZThreeDotHamburg } from "zitics-core-ui";
+// import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
+// import { NotificationPopover } from "./Components/SearchWithDropdown";
+// import { ZPopover } from "./Components/PopOver";
+// import { AlignmentComponent } from "./Components/VerticalAlignment.tsx";
+// import { HorizontalAlignmentComponent } from "./Components/HorizontalAlignment";
+// import { Line } from "./Components/Divider";
+import { ThreeDotDropdown } from "./Components/ThreeDotDropdown";
+// import DotDropdown from "./Components/ThreeDotDropdown";
+// import ThreeDotDropDown from "./Components/ThreeDotDropdown";
 // import { Divider } from "@fluentui/react-components";
+// import DotImg from "../src/Components/ThreeDotDropdown/threedot.svg"
+import EditIcon from "../src/Components/ThreeDotDropdown/PencilImg.svg";
+import DeleteIcon from "../src/Components/ThreeDotDropdown/DeleteLogo.svg";
 
 function App() {
-  const classes = useStyles();
+  // const classes = useStyles();
+
+  const menuItems = [
+    { label: "Edit", imageSrc: EditIcon },
+    { label: "Delete", imageSrc: DeleteIcon },
+  ];
   return (
     <div className="App">
       {/* <InputComponent fieldName='Email*'/>
@@ -66,7 +77,9 @@ function App() {
       {/* <AlignmentComponent /> */}
       {/* <HorizontalAlignmentComponent/> */}
       {/* <TagPickerContainer fieldName="Companies" className={""}/> */}
-      <Line/>
+      {/* <Line/> */}
+
+      <ThreeDotDropdown items={menuItems} />
     </div>
   );
 }

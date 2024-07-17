@@ -29,6 +29,10 @@ export const Line = () => {
         <Divider alignContent="end" vertical>
           end
         </Divider>
+        <h2>Custom Styling </h2>
+        <div className={styles.example}>
+          <Divider className={styles.customWidth}>Custom width (200px)</Divider>
+        </div>
       </div>
     </div>
   );

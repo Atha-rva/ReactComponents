@@ -14,4 +14,7 @@ export const useStyles = makeStyles({
     minHeight: "96px",
     backgroundColor: tokens.colorNeutralBackground1,
   },
+  customWidth: {
+    width: "200px",
+  },
 });
