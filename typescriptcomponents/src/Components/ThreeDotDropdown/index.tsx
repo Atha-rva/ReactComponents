@@ -8,19 +8,24 @@ import {
   Image,
   Button,
   Divider,
+  mergeClasses,
 } from "@fluentui/react-components";
 import ImgDot from "./threedot.svg";
+import { useStyles } from "./style";
 
 interface MenuItemProps {
   label: string;
   imageSrc: string;
+  onClick?: () => void;
 }
 
 interface MenuProps {
   items: MenuItemProps[];
-  ZclassName: string;
-  ZContentclassName: string;
-  Zstyle: React.CSSProperties;
+  ZclassName?: string;
+  ZContentclassName?: string;
+  Zstyle?: React.CSSProperties;
+  borderColor?: string;
+  onChange?: (label: string) => void;
 }
 
 export const ThreeDotDropdown: React.FC<Partial<MenuProps>> = ({
@@ -28,37 +33,40 @@ export const ThreeDotDropdown: React.FC<Partial<MenuProps>> = ({
   ZclassName,
   ZContentclassName,
   Zstyle,
+  borderColor = "#A869E9",
+  onChange,
 }) => {
+  const handleItemClick = (label: string, onClick?: () => void) => {
+    if (onClick) {
+      onClick();
+    }
+    if (onChange) {
+      onChange(label);
+    }
+  };
+  const classes = useStyles();
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
-        <Button
-          className={ZclassName}
-          style={{ marginLeft: "50px", border: "none", width: "20px" }}
-        >
+        <Button className={mergeClasses(classes.ZButton, ZclassName)}>
           <Image src={ImgDot} />
         </Button>
       </MenuTrigger>
 
       <MenuPopover
-        className={ZContentclassName}
+        className={mergeClasses(classes.ZMenuPopOver, ZContentclassName)}
         style={{
-          borderRadius: "10px",
-          width: "77px",
-          border: "1px solid #A869E9",
+          border: `1px solid ${borderColor}`,
         }}
       >
         <MenuList>
           {items.map((item, index) => (
             <React.Fragment key={index}>
-              <MenuItem>
-                <div
-                  style={{ display: "flex", gap: "9px", alignItems: "center" }}
-                >
-                  <Image
-                    src={item.imageSrc}
-                    style={{ height: "12px", width: "12px" }}
-                  />
+              <MenuItem
+                onClick={() => handleItemClick(item.label, item.onClick)}
+              >
+                <div className={classes.ZMenuItem}>
+                  <Image src={item.imageSrc} className={classes.ZImage} />
                   <span>{item.label}</span>
                 </div>
               </MenuItem>

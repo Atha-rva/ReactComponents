@@ -33,6 +33,21 @@ export const Line = () => {
         <div className={styles.example}>
           <Divider className={styles.customWidth}>Custom width (200px)</Divider>
         </div>
+        <div className={styles.example}>
+          <Divider appearance="subtle" style={{ width: "50vw" }}>
+            subtle
+          </Divider>
+        </div>
+        <div className={styles.example}>
+          <Divider appearance="brand" style={{ width: "50vw" }}>
+            brand
+          </Divider>
+        </div>
+        <div className={styles.example}>
+          <Divider appearance="strong" style={{ width: "50vw" }}>
+            strong
+          </Divider>
+        </div>
       </div>
     </div>
   );

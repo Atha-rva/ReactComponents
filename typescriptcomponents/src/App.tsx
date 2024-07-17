@@ -37,14 +37,28 @@ import { ThreeDotDropdown } from "./Components/ThreeDotDropdown";
 // import DotImg from "../src/Components/ThreeDotDropdown/threedot.svg"
 import EditIcon from "../src/Components/ThreeDotDropdown/PencilImg.svg";
 import DeleteIcon from "../src/Components/ThreeDotDropdown/DeleteLogo.svg";
+import { Line } from "./Components/Divider";
+import { OrganisationStatus } from "./Components/StatusOrganization";
 
 function App() {
   // const classes = useStyles();
 
   const menuItems = [
-    { label: "Edit", imageSrc: EditIcon },
-    { label: "Delete", imageSrc: DeleteIcon },
+    {
+      label: "Edit",
+      imageSrc: EditIcon,
+      onClick: () => console.log("Edit Clicked"),
+    },
+    {
+      label: "Delete",
+      imageSrc: DeleteIcon,
+      onClick: () => console.log("Delete Clicked"),
+    },
   ];
+
+  const handleChange = (label: string) => {
+    console.log("Selected Item", label);
+  };
   return (
     <div className="App">
       {/* <InputComponent fieldName='Email*'/>
@@ -79,7 +93,12 @@ function App() {
       {/* <TagPickerContainer fieldName="Companies" className={""}/> */}
       {/* <Line/> */}
 
-      <ThreeDotDropdown items={menuItems} />
+      {/* <ThreeDotDropdown
+        items={menuItems}
+        borderColor="#A869E9"
+        onChange={handleChange}
+      /> */}
+      <OrganisationStatus handleSetSelectedItems={undefined}/>
     </div>
   );
 }
