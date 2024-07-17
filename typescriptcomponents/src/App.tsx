@@ -29,6 +29,8 @@ import { NotificationPopover } from "./Components/SearchWithDropdown";
 import { ZPopover } from "./Components/PopOver";
 import { AlignmentComponent } from "./Components/VerticalAlignment.tsx";
 import { HorizontalAlignmentComponent } from "./Components/HorizontalAlignment";
+import { Line } from "./Components/Divider";
+// import { Divider } from "@fluentui/react-components";
 
 function App() {
   const classes = useStyles();
@@ -63,7 +65,8 @@ function App() {
       /> */}
       {/* <AlignmentComponent /> */}
       {/* <HorizontalAlignmentComponent/> */}
-      <TagPickerContainer fieldName="Companies" className={""}/>
+      {/* <TagPickerContainer fieldName="Companies" className={""}/> */}
+      <Line/>
     </div>
   );
 }
