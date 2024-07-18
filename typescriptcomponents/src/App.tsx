@@ -25,7 +25,10 @@ import "./App.css";
 // // import { RadioBtn } from "./Components/RadioButton";
 // import { ZRadio, ZThreeDotHamburg } from "zitics-core-ui";
 // import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
-import { NotificationPopover, SearchWithDropdown } from "./Components/SearchWithDropdown";
+import {
+  NotificationPopover,
+  SearchWithDropdown,
+} from "./Components/SearchWithDropdown";
 // import { ZPopover } from "./Components/PopOver";
 // import { AlignmentComponent } from "./Components/VerticalAlignment.tsx";
 // import { HorizontalAlignmentComponent } from "./Components/HorizontalAlignment";
@@ -41,6 +44,7 @@ import { Line } from "./Components/Divider";
 import { OrganisationStatus } from "./Components/StatusOrganization";
 import { SpinnerContainer } from "./Components/Spinner";
 import ASpinner from "./Components/Spinner/ASpinner";
+import { LanguageDropdown } from "./Components/LanguageDropDown";
 
 function App() {
   // const classes = useStyles();
@@ -61,9 +65,6 @@ function App() {
   const handleChange = (label: string) => {
     console.log("Selected Item", label);
   };
-
-
-
 
   // const searchDropdownProps = {
   //   placeholder: 'Search...',
@@ -101,7 +102,7 @@ function App() {
   //         { label: 'Notification 4', time: '2 days ago', read: false },
   //       ],
   //     },
-      
+
   //   ],
   //   label: 'Notifications',
   // };
@@ -149,6 +150,7 @@ function App() {
       {/* <ASpinner/> */}
       {/* <SearchWithDropdown {...searchDropdownProps} /> */}
       {/* <NotificationPopover {...notificationPopoverProps} /> */}
+      < LanguageDropdown/>
     </div>
   );
 }
