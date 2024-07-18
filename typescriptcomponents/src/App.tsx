@@ -45,6 +45,8 @@ import { OrganisationStatus } from "./Components/StatusOrganization";
 import { SpinnerContainer } from "./Components/Spinner";
 import ASpinner from "./Components/Spinner/ASpinner";
 import { LanguageDropdown } from "./Components/LanguageDropDown";
+import { ZPopover } from "zitics-core-ui";
+import ZPopInfo from "./Components/InfoIcon";
 
 function App() {
   // const classes = useStyles();
@@ -150,7 +152,9 @@ function App() {
       {/* <ASpinner/> */}
       {/* <SearchWithDropdown {...searchDropdownProps} /> */}
       {/* <NotificationPopover {...notificationPopoverProps} /> */}
-      < LanguageDropdown/>
+      {/* < LanguageDropdown/> */}
+      {/* <ZPopover/> */}
+      <ZPopInfo ValidValue={""} mainAxis={20} />
     </div>
   );
 }
