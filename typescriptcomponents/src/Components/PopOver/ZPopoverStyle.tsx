@@ -63,8 +63,18 @@ export const useStyles = makeStyles({
     overflowY: "auto",
     overflowX: "hidden",
     position: "relative",
+    "&::-webkit-scrollbar": {
+      width: "8px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(0, 0, 0, 0.2)",
+      borderRadius: "4px",
+    },
+    "&::-webkit-scrollbar-track": {
+      background: "none",
+    },
+    scrollbarColor: "rgba(0, 0, 0, 0.2) transparent",
   },
-
   scrollContent: {
     marginRight: "0px",
   },
