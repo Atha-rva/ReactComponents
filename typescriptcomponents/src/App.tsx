@@ -45,16 +45,25 @@ import { OrganisationStatus } from "./Components/StatusOrganization";
 import { SpinnerContainer } from "./Components/Spinner";
 import ASpinner from "./Components/Spinner/ASpinner";
 import { LanguageDropdown } from "./Components/LanguageDropDown";
-import { ZPopover } from "zitics-core-ui";
+import { ZPopover, ZTable } from "zitics-core-ui";
 import ZPopInfo from "./Components/InfoIcon";
 import { FocusableElementsInCells } from "./VerticalTableLayout";
 import GridLayout from "./GridLayout";
 import ADropdown from "./Components/Scrollbar";
 import ZScrollBar from "./Components/Scrollbar";
 import CustomScrollbar from "./Components/Scrollbar";
+import { OrgStatus } from "./Components/PopoverStatus";
+import { RadioBtn } from "./Components/RadioButton";
+import { useStyles } from "./style";
+import TagPickerContainer from "./Components/TagPicker";
+// import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
+import {ManufacturingTagPickerContainer} from "./Components/TagpickerDropdown"
+import { ZDropdown } from "./Components/Dropdown";
+
+// import { DropdownContent } from "./Components/TablePopover";
 
 function App() {
-  // const classes = useStyles();
+  const classes = useStyles();
 
   const menuItems = [
     {
@@ -113,6 +122,21 @@ function App() {
   //   ],
   //   label: 'Notifications',
   // };
+
+  const colKey = ["status", "name", "address", "collageName"];
+  const headings = [
+    { label: <OrgStatus children={<></>} positioning={"below"} /> },
+    { label: "Name" },
+    { label: "Address" },
+    { label: "Collage Name" },
+  ];
+  const data = [
+    { name: "Atharva", address: "Pune", collageName: "XYZ" },
+    // { name: "Jayesh", address: "Mumbai", collageName: "ABC" },
+    // { name: "Vishal", address: "Bangalore", collageName: "XYZ" },
+    // { name: "Chetan", address: "Delhi", collageName: "ABC" },
+  ];
+
   return (
     <div className="App">
       {/* <InputComponent fieldName='Email*'/>
@@ -167,11 +191,42 @@ function App() {
       {/* <OrganisationStatus handleSetSelectedItems={undefined} /> */}
       {/* <ZScrollBar/> */}
       {/* <ADropdown/> */}
-      <div style={{ height: "100vh", width: "100vw" }}>
+      {/* <div style={{ height: "100vh", width: "100vw" }}>
         <CustomScrollbar width="300px" height="250px">
           <div style={{ height: "600px", padding: "20px" }}></div>
         </CustomScrollbar>
-      </div>
+      </div> */}
+      {/* <div
+        style={{
+          width: "50vw",
+          height: "50vw",
+          borderRadius: "10px",
+          marginLeft: "500px",
+          marginTop: "200px",
+        }}
+      >
+        <ZTable zcolKeys={colKey} zheadings={headings} zdata={data}></ZTable>
+      </div> */}
+      {/* <RadioBtn RadioGroupclass={classes.root}   ZGlobalLabel="Applicable Companies" Zlabel={["Atharva","Jayesh","Rahul sir","Vishal"]}/> */}
+      {/* <TagPickerContainer className={""} fieldName={"GSTIN"}/> */}
+      
+      {/* <ManufacturingTagPickerContainer
+        className={""}
+        fieldName={"Applicable Companies"}
+        options={[
+          "Atharva",
+          "Jayesh",
+          "Suresh",
+          "Ramesh",
+          "Vishal",
+          "Chetan",
+          "Rahul Sir ",
+          "Sammer Sir",
+          "Rutuja Sir",
+        ]}
+      /> */}
+      {/* <ManufacturingTagPickerContainer className={""} fieldName={""} options={[]}/> */}
+      {/* <ZDropdown zoptions={["Atharva","Vishal","Ramesh","Suresh","Falkesh","vishal","Ramu","Rahul Sir","Rutuja Maam","Sameer Sir"]} multiselect/> */}
     </div>
   );
 }

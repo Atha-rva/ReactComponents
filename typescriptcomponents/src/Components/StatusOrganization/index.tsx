@@ -8,9 +8,7 @@ import correctTick from "../../images/CorrectTick.svg";
 import statusIcon from "../../images/status.svg";
 import statusArrowTable from "../../images/statusArrowTable.svg";
 
-
 import useStyles from "./style";
-
 
 import { Button, Image } from "@fluentui/react-components";
 
@@ -79,7 +77,6 @@ export const OrganisationStatus = ({
     };
   }, [isOpen]);
 
-
   const classes = useStyles();
   return (
     <div ref={dropdownRef}>
@@ -95,11 +92,7 @@ export const OrganisationStatus = ({
       {isOpen && (
         <div className={classes.zdropdownContainer}>
           {["Active", "Draft", "Pending", "Rejected"].map((item, index) => (
-            <div
-              onClick={() => {
-              }}
-              key={item}
-            >
+            <div onClick={() => {}} key={item}>
               <p
                 className={classes.zdropdownContent}
                 onClick={() => handleItemClick(item)}

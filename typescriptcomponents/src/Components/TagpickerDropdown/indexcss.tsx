@@ -81,8 +81,9 @@ export const useStyles = makeStyles({
     },
     ':after': {
       content: "",
-      border: "1px solid black !important",
+      border: "none !important",
     }
+
   },
   ZExpandIcon: {
     display: "flex",
@@ -111,9 +112,8 @@ export const useStyles = makeStyles({
   },
   ZTagPickerListContent: {
     ...shorthands.border("2px", "solid", "lightgreen"), 
-    marginTop: "6px",
     borderRadius: "10px",
-    maxHeight:"144px",
+    maxHeight: "144px",
   },
   tagPickerOption: {
     '&:hover': {

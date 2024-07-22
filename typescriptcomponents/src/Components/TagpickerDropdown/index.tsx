@@ -12,12 +12,15 @@ import { Tag, Button, Field, Checkbox } from "@fluentui/react-components";
 import { useStyles } from "./indexcss";
 import { ZLogo } from "zitics-core-ui";
 import { CaretDownFilled, CaretUp16Filled } from "@fluentui/react-icons";
+import CustomScrollbar from "../Scrollbar";
 
 interface MyComponentProps {
   className: string;
   fieldName: string;
   options: string[];
 }
+
+const getRandomBoolean = () => Math.random() >= 0.5;
 
 export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
   className,
@@ -26,20 +29,32 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
 }) => {
   const classes = useStyles();
   const [selectedOptions, setSelectedOptions] = React.useState<string[]>([]);
+
+  React.useEffect(() => {
+    const randomlySelectedOptions = options.filter(() => getRandomBoolean());
+    setSelectedOptions(randomlySelectedOptions);
+  }, [options]);
+
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const onOptionSelect: TagPickerProps["onOptionSelect"] = (event, data) => {
     setSelectedOptions(data.selectedOptions);
   };
 
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>, option: string) => {
-    const newSelectedOptions = event.target.checked
-      ? [...selectedOptions, option]
-      : selectedOptions.filter((selectedOption) => selectedOption !== option);
-    setSelectedOptions(newSelectedOptions);
+  const handleCheckboxChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    option: string
+  ) => {
+    setSelectedOptions((prevSelectedOptions) =>
+      event.target.checked
+        ? [...prevSelectedOptions, option]
+        : prevSelectedOptions.filter(
+            (selectedOption) => selectedOption !== option
+          )
+    );
   };
 
-  const handleAllClear: React.MouseEventHandler = (event) => {
+  const handleAllClear: React.MouseEventHandler = () => {
     setSelectedOptions([]);
   };
 
@@ -95,20 +110,23 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
           </TagPickerGroup>
           <TagPickerInput aria-label="Select Employees" />
         </TagPickerControl>
+
         <TagPickerList className={classes.ZTagPickerListContent}>
-          {options.length > 0
-            ? options.map((option) => (
-                <div key={option} >
-                  <Checkbox
-                  label={option}
-                  labelPosition={'before'}
-                  checked={selectedOptions.includes(option)}
-                  onChange={(event) => handleCheckboxChange(event, option)}
-                  className={classes.tagPickerOptionContainer}
-                />
-                </div>
-              ))
-            : "No options available"}
+          <CustomScrollbar>
+            {options.length > 0
+              ? options.map((option) => (
+                  <div key={option}>
+                    <Checkbox
+                      label={option}
+                      labelPosition={"before"}
+                      checked={selectedOptions.includes(option)}
+                      onChange={(event) => handleCheckboxChange(event, option)}
+                      className={classes.tagPickerOptionContainer}
+                    />
+                  </div>
+                ))
+              : "No options available"}
+          </CustomScrollbar>
         </TagPickerList>
       </TagPicker>
     </Field>

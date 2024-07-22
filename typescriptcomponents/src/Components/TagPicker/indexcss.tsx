@@ -9,11 +9,10 @@ export const useStyles = makeStyles({
     },
     ":after": {
       content: "",
-      border: "1px solid black !important",
+      border: "none !important",
     },
   },
   ZTagContainer: {
-    marginTop: "20px",
     marginBottom: "20px",
   },
   ZTagInsideSelect: {

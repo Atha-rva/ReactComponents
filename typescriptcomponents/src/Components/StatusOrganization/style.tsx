@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     border: `1px solid ${colorSchema.types.primary1}`,
     position: "absolute",
     backgroundColor: colorSchema.grays.defaultBackground,
-    zIndex: "1000 !important",
+    zIndex:1000,
     fontSize: fontSize.Body_10_R,
     fontWeight: fontWeight.fontWeight400,
   },
@@ -29,6 +29,7 @@ const useStyles = makeStyles({
     marginTop: "5px",
     display: "flex",
     alignItems: "center",
+    zIndex: 2,
   },
   zdropdownlogoSelection: {
     width: "10px",
