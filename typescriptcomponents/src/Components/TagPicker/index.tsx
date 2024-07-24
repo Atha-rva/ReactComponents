@@ -15,7 +15,7 @@ import {
   TagPickerProps,
 } from "@fluentui/react-components";
 import { useStyles } from "./indexcss";
-import { ZLogo, ZPasswordInfoIcon } from "zitics-core-ui";
+import { ZLogo } from "zitics-core-ui";
 
 interface MyComponentProps {
   className: string;

@@ -103,7 +103,7 @@ const TagPickerValidContainer: React.FC<MyComponentProps> = ({
             {selectedOptions.map((option) => (
               <Tag
                 key={option}
-                value={option}
+                value={option}  
                 className={classes.ZTagInsideSelect}
                 shape={"circular"}
               >
