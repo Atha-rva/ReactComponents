@@ -53,6 +53,7 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
         size={"large"}
         onOptionSelect={onOptionSelect}
         selectedOptions={selectedOptions}
+        positioning={"below"}
       >
         <TagPickerControl
           expandIcon={
@@ -72,9 +73,9 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
               size="small"
               shape="rounded"
               onClick={handleAllClear}
-              style={{minWidth:"41px",marginTop:"5px"}}
+              style={{ minWidth: "41px", marginTop: "5px" }}
             >
-              <ZLogo src={ZTagError}  />
+              <ZLogo src={ZTagError} />
             </Button>
           }
         >
@@ -92,16 +93,19 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
           </TagPickerGroup>
           <TagPickerInput aria-label="Select Employees" />
         </TagPickerControl>
-        <TagPickerList className={classes.ZTagPickerListContent} >
+        <TagPickerList
+          className={classes.ZTagPickerListContent}
+          tabIndex={1} // Adding tabIndex here
+        >
           {tagPickerOptions.length > 0
             ? tagPickerOptions.map((option) => (
-              <div  key={option}>
-                <TagPickerOption
-                  className={classes.tagPickerOption}
-                    value={option}
+                <div key={option}>
+                  <TagPickerOption
+                    className={classes.tagPickerOption}
+                  value={option}
                   >
-                  {option}
-                </TagPickerOption>
+                    {option}
+                  </TagPickerOption>
                 </div>
               ))
             : "No options available"}

@@ -22,7 +22,7 @@ interface MyComponentProps {
 
 const getRandomBoolean = () => Math.random() >= 0.5;
 
-export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
+export const ZTagPickerContainer: React.FC<MyComponentProps> = ({
   className,
   fieldName,
   options,
@@ -45,13 +45,19 @@ export const ManufacturingTagPickerContainer: React.FC<MyComponentProps> = ({
     event: React.ChangeEvent<HTMLInputElement>,
     option: string
   ) => {
-    setSelectedOptions((prevSelectedOptions) =>
-      event.target.checked
-        ? [...prevSelectedOptions, option]
-        : prevSelectedOptions.filter(
-            (selectedOption) => selectedOption !== option
-          )
-    );
+    const isChecked = event.target.checked;
+
+    setSelectedOptions((prevSelectedOptions) => {
+      if (isChecked) {
+        // Add the option if it is checked and not already selected
+        return [...prevSelectedOptions, option];
+      } else {
+        // Remove the option if it is unchecked and already selected
+        return prevSelectedOptions.filter(
+          (selectedOption) => selectedOption !== option
+        );
+      }
+    });
   };
 
   const handleAllClear: React.MouseEventHandler = () => {

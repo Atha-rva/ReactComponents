@@ -2,10 +2,28 @@ import { makeStyles } from "zitics-core-ui";
 
 export const useStyles = makeStyles({
   ZTagPicker: {
-    borderRadius: "7px",
+    borderRadius: "10px",
     border: "1px solid black !important",
     ":active": {
       border: "1px solid black !important",
+    },
+    ":after": {
+      content: "",
+      border: "none !important",
+    },
+  },
+  // ZTagPickerTyping: {
+  //   border: "1px solid #33CC99 !important",
+  //   ":after": {
+  //     content: "",
+  //     border: "none !important",
+  //   },
+  // },
+  ZTagPickerError: {
+    borderRadius: "7px",
+    border: "1px solid red !important", 
+    ":active": {
+      border: "1px solid red !important",
     },
     ":after": {
       content: "",
@@ -48,5 +66,15 @@ export const useStyles = makeStyles({
   },
   ZTagPickerList: {
     display: "none",
+  },
+  ZWrongGstinMsg: {
+    display: "flex",
+    justifyContent: "flex-end",
+    fontWeight: 400,
+    lineHeight: "20px",
+    fontSize: "10px",
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    color: "red",
   },
 });

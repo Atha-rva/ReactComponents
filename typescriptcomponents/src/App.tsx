@@ -57,8 +57,13 @@ import { RadioBtn } from "./Components/RadioButton";
 import { useStyles } from "./style";
 import TagPickerContainer from "./Components/TagPicker";
 // import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
-import {ManufacturingTagPickerContainer} from "./Components/TagpickerDropdown"
+import { ZTagPickerContainer } from "./Components/TagpickerDropdown";
 import { ZDropdown } from "./Components/Dropdown";
+import { ZTagDropdown } from "./Components/TagDropdown";
+import TagPickerValidContainer from "./Components/TagPickerwithValidation";
+import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithdropdowncheckbox";
+// import { ZTagDropdown } from "./Components/TagDropdown";
+// import { ZTagDropdown } from "./Components/TagDropdown";
 
 // import { DropdownContent } from "./Components/TablePopover";
 
@@ -209,7 +214,7 @@ function App() {
       </div> */}
       {/* <RadioBtn RadioGroupclass={classes.root}   ZGlobalLabel="Applicable Companies" Zlabel={["Atharva","Jayesh","Rahul sir","Vishal"]}/> */}
       {/* <TagPickerContainer className={""} fieldName={"GSTIN"}/> */}
-      
+
       {/* <ManufacturingTagPickerContainer
         className={""}
         fieldName={"Applicable Companies"}
@@ -227,6 +232,105 @@ function App() {
       /> */}
       {/* <ManufacturingTagPickerContainer className={""} fieldName={""} options={[]}/> */}
       {/* <ZDropdown zoptions={["Atharva","Vishal","Ramesh","Suresh","Falkesh","vishal","Ramu","Rahul Sir","Rutuja Maam","Sameer Sir"]} multiselect/> */}
+      {/* <ManufacturingTagPickerContainer className={""} fieldName={""} options={["Atharva","Rohit","Vishal","Pankaj","Ganesh","Mahadev"]}/> */}
+      {/* <LanguageDropdown/> */}
+      {/* <ZTagDropdown zoptions={["Atharva","Vishal","Ramesh","Suresh","Falkesh","vishal","Ramu","Rahul Sir","Rutuja Maam","Sameer Sir"]} multiselect/> */}
+      {/* <TagPickerContainer className={""} fieldName={"GSTIN"} /> */}
+      {/* <TagPickerValidContainer className={""} fieldName={"Applicable Companies"}/> */}
+      {/* <ManufacturingTagPickerContainer className={""} fieldName={""} options={["Atharva","Vishal","Ramesh","Suresh","Falkesh","vishal","Ramu","Rahul Sir","Rutuja Maam","Sameer Sir"]}/> */}
+      {/* <ZTagPickerContainer className={""} fieldName={"Companies"} options={["Atharva", "Vishal", "Ramesh", "Suresh", "Falkesh", "vishal", "Ramu", "Rahul Sir", "Rutuja Maam", "Sameer Sir"]} /> */}
+      <div
+        style={{
+          width: "50vw",
+          height: "30vw",
+          border: "2px solid black",
+          overflow: "scroll",
+          marginLeft: "500px",
+          marginTop: "100px",
+          zIndex:1000,
+        }}
+      >
+        <div style={{ width: "950px" }}>
+          <ManufacturingTagPickerContainer
+            className={""}
+            fieldName={"Sub-Sectors Automotive & Automotive Components"}
+            options={[
+              "Automotive & Automotive Components",
+              "Consumer Electronics & Appliances",
+              "FMCG",
+              "Automobiles - Medium and Heavy Commercial Vehicles",
+              "Automobiles - Motorcycles",
+              "Automobiles - Passenger Cars",
+            ]}
+          />
+        </div>
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit nisi
+          enim rerum in facere eos inventore nihil recusandae numquam sunt.
+          Omnis beatae officia enim dignissimos qui maiores error nesciunt
+          delectus adipisci libero. Sed, id nihil. Molestias eaque
+          necessitatibus nesciunt provident obcaecati saepe incidunt perferendis
+          blanditiis, adipisci ex labore alias nobis placeat ad corrupti earum
+          doloremque, facere tempore voluptate? Expedita cumque doloremque hic
+          voluptas autem alias rerum, fugit repellendus recusandae omnis optio,
+          nostrum velit voluptate, est asperiores perferendis molestiae
+          exercitationem tempore? Odio expedita blanditiis totam vero
+          laudantium, ducimus accusamus ratione id esse tempora quis dolorem
+          quidem maxime, dignissimos provident nobis consequatur explicabo
+          asperiores minus corrupti quisquam doloremque odit nemo earum. Ut a
+          porro obcaecati, nam dolorum delectus et modi possimus adipisci ullam
+          iste optio, necessitatibus nobis exercitationem! Aliquam adipisci
+          voluptates saepe consequuntur quae voluptatem sapiente mollitia
+          eveniet non deleniti, dicta, id quasi sit minima iusto. Expedita sequi
+          nesciunt rerum eius tempore, velit voluptas dolor magni laudantium
+          adipisci odio earum facilis amet deleniti. Praesentium fugit, quia
+          possimus animi odit magnam eius cum. Harum perspiciatis nihil nesciunt
+          quidem hic qui tempore inventore, ipsam ipsum alias architecto nemo
+          fugiat rem aperiam adipisci accusamus quo dolorem necessitatibus,
+          voluptatibus neque, voluptatum ullam? Quidem tempora molestias
+          similique!
+        </span>
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit nisi
+          enim rerum in facere eos inventore nihil recusandae numquam sunt.
+          Omnis beatae officia enim dignissimos qui maiores error nesciunt
+          delectus adipisci libero. Sed, id nihil. Molestias eaque
+          necessitatibus nesciunt provident obcaecati saepe incidunt perferendis
+          blanditiis, adipisci ex labore alias nobis placeat ad corrupti earum
+          doloremque, facere tempore voluptate? Expedita cumque doloremque hic
+          voluptas autem alias rerum, fugit repellendus recusandae omnis optio,
+          nostrum velit voluptate, est asperiores perferendis molestiae
+          exercitationem tempore? Odio expedita blanditiis totam vero
+          laudantium, ducimus accusamus ratione id esse tempora quis dolorem
+          quidem maxime, dignissimos provident nobis consequatur explicabo
+          asperiores minus corrupti quisquam doloremque odit nemo earum. Ut a
+          porro obcaecati, nam dolorum delectus et modi possimus adipisci ullam
+          iste optio, necessitatibus nobis exercitationem! Aliquam adipisci
+          voluptates saepe consequuntur quae voluptatem sapiente mollitia
+          eveniet non deleniti, dicta, id quasi sit minima iusto. Expedita sequi
+          nesciunt rerum eius tempore, velit voluptas dolor magni laudantium
+          adipisci odio earum facilis amet deleniti. Praesentium fugit, quia
+          possimus animi odit magnam eius cum. Harum perspiciatis nihil nesciunt
+          quidem hic qui tempore inventore, ipsam ipsum alias architecto nemo
+          fugiat rem aperiam adipisci accusamus quo dolorem necessitatibus,
+          voluptatibus neque, voluptatum ullam? Quidem tempora molestias
+          similique!
+        </span>
+        <div style={{ width: "950px", marginTop: "20px" }}>
+          <ManufacturingTagPickerContainer
+            className={""}
+            fieldName={"Sub-Sectors Automotive & Automotive Components"}
+            options={[
+              "Automotive & Automotive Components",
+              "Consumer Electronics & Appliances",
+              "FMCG",
+              "Automobiles - Medium and Heavy Commercial Vehicles",
+              "Automobiles - Motorcycles",
+              "Automobiles - Passenger Cars",
+            ]}
+          />
+        </div>
+      </div>
     </div>
   );
 }
