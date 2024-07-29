@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Button,
   Field,
-  Image,
   InfoLabel,
   Link,
   Tag,
@@ -25,7 +24,6 @@ interface MyComponentProps {
 const ZTagError =
   "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
 
-const imageURL = "your-image-url-here";
 
 const TagPickerContainer: React.FC<MyComponentProps> = ({
   className,

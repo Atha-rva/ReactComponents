@@ -5,6 +5,17 @@ import { ZLeftContainer } from "./Components/LeftContainer/LContainer";
 import ZBubbleAnimations from "./Components/BubbleAnimations/Animation";
 import { useStyles } from "./style";
 import TagPickerValidContainer from "./Components/TagPickerwithValidation";
+import TagPickerContainer from "./Components/TagPicker";
+import DropdownInput from "./Components/DropdownInput";
+import CustomDropdown from "./Components/DropdownInput";
+import { ZButton } from "./Components/VarientButtons";
+import DisplayValue from "./Components/SpinButton";
+import ZSpinButton from "./Components/SpinButton";
+import TextAreaField from "./Components/TextArea";
+
+
+
+
 
 const App = () => {
   const classes = useStyles();
@@ -123,6 +134,12 @@ const App = () => {
       </div> */}
       {/* <ZBubbleAnimations className={classes.ZLContainerCompoent} /> */}
       {/* <TagPickerValidContainer className={''} fieldName={'Companies'}/> */}
+      {/* <TagPickerContainer className={""} fieldName={"GSTIN"} /> */}
+      {/* <CustomDropdown/> */}
+      {/* <ZButton variant="colorHold">Atharva</ZButton> */}
+      {/* <CustomDropdown/> */}
+      {/* <ZSpinButton zlabel={"Companies"} zmin={0} zmax={12} zdisabled={false} zdefaultvalue={0} zhide={false} /> */}
+      <TextAreaField zlabel="Purpose" placeholder="Enter Purpose" />
     </div>
   );
 };
