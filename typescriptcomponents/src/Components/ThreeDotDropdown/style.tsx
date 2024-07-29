@@ -9,6 +9,7 @@ export const useStyles = makeStyles({
   ZMenuPopOver: {
     borderRadius: "10px",
     width: "77px",
+    border:"1px solid #A869E9"
   },
   ZMenuItem: {
     display: "flex",

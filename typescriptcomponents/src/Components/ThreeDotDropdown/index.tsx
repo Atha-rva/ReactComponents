@@ -23,8 +23,6 @@ interface MenuProps {
   items: MenuItemProps[];
   ZclassName?: string;
   ZContentclassName?: string;
-  Zstyle?: React.CSSProperties;
-  borderColor?: string;
   onChange?: (label: string) => void;
 }
 
@@ -32,8 +30,6 @@ export const ThreeDotDropdown: React.FC<Partial<MenuProps>> = ({
   items = [],
   ZclassName,
   ZContentclassName,
-  Zstyle,
-  borderColor = "#A869E9",
   onChange,
 }) => {
   const handleItemClick = (label: string, onClick?: () => void) => {
@@ -53,12 +49,7 @@ export const ThreeDotDropdown: React.FC<Partial<MenuProps>> = ({
         </Button>
       </MenuTrigger>
 
-      <MenuPopover
-        className={mergeClasses(classes.ZMenuPopOver, ZContentclassName)}
-        style={{
-          border: `1px solid ${borderColor}`,
-        }}
-      >
+      <MenuPopover className={mergeClasses(classes.ZMenuPopOver, ZContentclassName)}>
         <MenuList>
           {items.map((item, index) => (
             <React.Fragment key={index}>

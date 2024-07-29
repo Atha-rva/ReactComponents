@@ -309,7 +309,7 @@ const ZBubbleAnimations: React.FC<ZBubbleAnimationsProps> = ({ className }) => {
           lavaRef.current = new LavaLamp(
             canvas.width,
             canvas.height,
-            60,
+            20,
             "#33CC99",
             "#97E295",
             "#97E295",

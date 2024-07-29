@@ -4,6 +4,11 @@ export const useStyles = makeStyles({
   root: {
     gap: "300px",
   },
+  ZLContainerCompoent: {
+    width: "812px",
+    height: "820px",
+    borderRadius:"40px",
+  }
   // root: {
   //     width: "100%",
   //     height: "100%",

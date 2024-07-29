@@ -48,7 +48,6 @@ const AutoSuggest: React.FC = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
     setSearchTerm(term);
-    // Filter suggestions based on input
     const filteredSuggestions = fruitSuggestions.filter((suggest) =>
       suggest.value.toLowerCase().includes(term.toLowerCase())
     );

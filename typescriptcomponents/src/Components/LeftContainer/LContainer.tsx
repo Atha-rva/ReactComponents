@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 // import './ZlContainer.css';
 // import { trasparantLogo } from "./assets/Images/Images";
 
-import './Lato.css';
+import '../../assets/CSS/Lato.css';
 import useStyles from "./LContainercss";
   
   interface ZContainerProps extends React.HTMLAttributes<HTMLDivElement> {
