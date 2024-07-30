@@ -16,6 +16,7 @@ export const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     gap: "10px",
+
   },
   ZTagInsideSelect: {
     borderRadius: "10px",

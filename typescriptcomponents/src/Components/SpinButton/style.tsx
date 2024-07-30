@@ -7,6 +7,9 @@ export const useStaticStyles = makeStaticStyles({
     ".r109xulx::after": {
         border:"none !important"
     },
+    ".r1g4chgs::hover": {
+        background:"none !important"
+    }
 
 });
 
@@ -18,14 +21,15 @@ export const useStyles = makeStyles({
         ">button": {
             padding: "0",
             cursor: "pointer",
-        }
+            background:"none",
+        },
       },
     base: {
         display: "flex",
         flexDirection: "column",
         
         "> label": {
-          marginBottom: "10px",
+          marginBottom: "5px",
         },
         
       },

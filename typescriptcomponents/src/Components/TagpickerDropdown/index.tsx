@@ -5,7 +5,6 @@ import {
   TagPickerInput,
   TagPickerControl,
   TagPickerProps,
-  TagPickerOption,
   TagPickerGroup,
 } from "@fluentui/react-components";
 import { Tag, Button, Field, Checkbox } from "@fluentui/react-components";
@@ -18,6 +17,7 @@ interface MyComponentProps {
   className: string;
   fieldName: string;
   options: string[];
+  style?: React.CSSProperties
 }
 
 const getRandomBoolean = () => Math.random() >= 0.5;
@@ -26,6 +26,7 @@ export const ZTagPickerContainer: React.FC<MyComponentProps> = ({
   className,
   fieldName,
   options,
+  style,
 }) => {
   const classes = useStyles();
   const [selectedOptions, setSelectedOptions] = React.useState<string[]>([]);
@@ -49,10 +50,10 @@ export const ZTagPickerContainer: React.FC<MyComponentProps> = ({
 
     setSelectedOptions((prevSelectedOptions) => {
       if (isChecked) {
-        // Add the option if it is checked and not already selected
+
         return [...prevSelectedOptions, option];
       } else {
-        // Remove the option if it is unchecked and already selected
+
         return prevSelectedOptions.filter(
           (selectedOption) => selectedOption !== option
         );
@@ -79,6 +80,7 @@ export const ZTagPickerContainer: React.FC<MyComponentProps> = ({
         selectedOptions={selectedOptions}
       >
         <TagPickerControl
+          style={style}
           expandIcon={
             <div onClick={handleExpandIconClick}>
               {isExpanded ? (
@@ -138,3 +140,7 @@ export const ZTagPickerContainer: React.FC<MyComponentProps> = ({
     </Field>
   );
 };
+
+
+
+
