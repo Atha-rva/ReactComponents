@@ -21,7 +21,7 @@ interface ZSpinBtnProps {
 type FormatterFn = (value: number) => string;
 type ParserFn = (formattedValue: string) => number;
 
-const ZSpinButton: React.FC<Partial<ZSpinBtnProps>> = ({
+const ZSpinButton: React.FC<Partial<ZSpinBtnProps & SpinButtonProps>> = ({
   zlabel,
   zdefaultvalue,
   zdisabled,
@@ -67,10 +67,6 @@ const ZSpinButton: React.FC<Partial<ZSpinBtnProps>> = ({
   const [spinButtonDisplayValue, setSpinButtonDisplayValue] = React.useState(
     formatter(0)
   );
-
-  React.useEffect(() => {
-    console.log([spinButtonValue, spinButtonDisplayValue]);
-  }, [spinButtonValue, spinButtonDisplayValue]);
 
   if (zhide) {
     return null;

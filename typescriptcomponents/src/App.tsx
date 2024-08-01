@@ -1,15 +1,35 @@
 import React from "react";
-import { ManufacturingTagPickerContainer } from "./Components/TagPickerComponentwithoutdropdowncheckbox";
-import { RadioBtn } from "./Components/RadioButton";
+import { FormRenderer } from "./JSONFormat/FormRenderer";
 
-
+const jsonTemplate = {
+  uilayout: {
+    elements: [
+      {
+        id: "section1",
+        layout: "grid",
+        elements: [
+          {
+            id: "radioBtn1",
+            control: "zRadioBtn",
+            label: "Select an Option",
+            options: ["Option 1", "Option 2", "Option 3"],
+            className: "radio-btn-container",
+            Radioclass: "radio-btn",
+            RadioGroupclass: "radio-group",
+            events: [{ onChange: true }, { onBlur: true }],
+            spanColunmns: 1,
+          },
+        ],
+      },
+    ],
+  },
+};
 
 const App = () => {
-  // const classes = useStyles();
   return (
     <div>
-      {/* <ManufacturingTagPickerContainer className={""} fieldName={""} options={["ksd,f,sdfn,dsfs,dfjdsfdsfk,fsjf","ldjfksdfklsdfjkdslfjklsdfjklsd",'jkshfjkdshfjkdshfjkhfjksdfjk','kfhsdjkfhjksdfhjfjksdfkjsdfjksfjsf','bsdfbfshfhhsdfhsfbfsbnmvbvbhvhvh','sdfhjkhfsjkdfhjkshfsjkd']}/> */}
-      <RadioBtn Zlabel={["Yes","No"]} ZGlobalLabel="Compaines"/>
+      <h1>Form Renderer POC</h1>
+      <FormRenderer template={jsonTemplate} />
     </div>
   );
 };

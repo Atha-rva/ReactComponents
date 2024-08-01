@@ -2,10 +2,10 @@ import { makeStaticStyles, makeStyles } from "zitics-core-ui";
 
 export const useStaticStyles = makeStaticStyles({
     ".r109xulx::before": {
-        border:"none"
+        border:"none !important",
     },
     ".r109xulx::after": {
-        border:"none !important"
+        border:"none !important",
     },
     ".r1g4chgs::hover": {
         background:"none !important"
@@ -31,6 +31,5 @@ export const useStyles = makeStyles({
         "> label": {
           marginBottom: "5px",
         },
-        
       },
 });
