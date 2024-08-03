@@ -4,6 +4,7 @@ import {
   Field,
   InfoLabel,
   Link,
+  mergeClasses,
   Tag,
   TagPicker,
   TagPickerControl,
@@ -71,7 +72,7 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({
   );
 
   return (
-    <Field className={classes.ZTagContainer}>
+    <Field className={mergeClasses(classes.ZTagContainer,className)}>
       <div style={{ display: "flex", gap: "5px" }}>
         {fieldName}
         <InfoLabel

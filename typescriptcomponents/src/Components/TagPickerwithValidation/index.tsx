@@ -4,6 +4,7 @@ import {
   Field,
   InfoLabel,
   Link,
+  mergeClasses,
   Tag,
   TagPicker,
   TagPickerControl,
@@ -24,7 +25,7 @@ interface MyComponentProps {
 const ZTagError =
   "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
 
-const GSTIN_REGEX = /^[0-9A-Z]{15}$/; // Basic validation regex for GSTIN
+const GSTIN_REGEX = /^[0-9A-Z]{15}$/; 
 
 const TagPickerValidContainer: React.FC<MyComponentProps> = ({
   className,
@@ -78,7 +79,7 @@ const TagPickerValidContainer: React.FC<MyComponentProps> = ({
   );
 
   return (
-    <Field className={classes.ZTagContainer}>
+    <Field className={mergeClasses(classes.ZTagContainer,className)}>
       <div style={{ display: "flex", gap: "5px" }}>
         {fieldName}
         <InfoLabel

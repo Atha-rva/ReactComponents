@@ -2,6 +2,8 @@ import React from "react";
 import { FormRenderer } from "./JSONFormat/FormRenderer";
 import ZPresentTextBox from "./Components/TextComponent";
 import { ZTagPickerDropdown } from "./BugsComponent/TagPickerComponent/index";
+import TagPickerContainer from "./Components/TagPicker";
+import TagPickerValidContainer from "./Components/TagPickerwithValidation";
 
 const jsonTemplate = {
   uilayout: {
@@ -33,7 +35,7 @@ const App = () => {
       {/* <h1>Form Renderer POC</h1>
       <FormRenderer template={jsonTemplate} /> */}
       {/* <ZPresentTextBox/> */}
-      <ZTagPickerDropdown zlabel="Companies" zoptions={["Apple",
+      {/* <ZTagPickerDropdown zlabel="Companies" zoptions={["Apple",
   "Google",
   "Microsoft",
   "Amazon",
@@ -42,7 +44,8 @@ const App = () => {
   "Netflix",
   "Adobe",
   "Intel",
-        "Samsung"]} multiselect style={{width:"200px"}}/>
+        "Samsung"]} multiselect style={{ width: "200px" }} /> */}
+     <TagPickerValidContainer className={""} fieldName={"Companies"}/>
     </div>
   );
 };
