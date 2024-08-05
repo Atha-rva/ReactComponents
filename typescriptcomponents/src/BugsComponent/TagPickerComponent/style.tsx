@@ -131,4 +131,16 @@ export const useStyles = makeStyles({
     display: "flex",
     justifyContent: "end",
   },
+  clearAllButton: {
+    display: "flex",
+    justifyContent:"end",
+  },
+  optionContainer:{
+     width:"100%",
+  },
+  flexContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  }
 });
