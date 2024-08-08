@@ -33,7 +33,7 @@ const companies = [
 const TagPickerComponent = () => {
   return (
     <div>
-      <ZTagPickerDropdown zoptions={companies} multiselect/>
+      <ZTagPickerDropdown zoptions={companies} />
     </div>
   )
 }

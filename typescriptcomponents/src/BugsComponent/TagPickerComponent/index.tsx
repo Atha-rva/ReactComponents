@@ -34,12 +34,14 @@ export const ZTagPickerDropdown = React.forwardRef<
     zoptions = [],
     zrequired,
     className,
-    multiselect,
     placeholder,
     onSelectOption,
     selectedOptions = [],
     ...rest
   } = props;
+  
+  const multiselect = true; // Setting multiselect to true by default
+
   const styles = useStyles();
 
   const [isOpen, setIsOpen] = useState(true);
@@ -183,7 +185,7 @@ export const ZTagPickerDropdown = React.forwardRef<
         }
         aria-labelledby={"dropdown"}
         placeholder={placeholder}
-        multiselect={multiselect || false}
+        multiselect={multiselect} // Set multiselect to true
         onOptionSelect={(event, data) =>
           handleSelectOption(event, data.optionValue)
         }
