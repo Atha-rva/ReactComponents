@@ -8,6 +8,7 @@ import OtpPassword from "./Components/OTPPassword/Render";
 import TagPickerTypeing from "./Components/TagPicker/Render";
 import TagPickerValidation from "./Components/TagPickerwithValidation/render";
 import TagPickerComponent from "./BugsComponent/TagPickerComponent/RenderFile";
+import ZPopInfoIcon from "./Components/Gstininfoicon";
 // import { FormRenderer } from "./JSONFormat/FormRenderer";
 // import ZPresentTextBox from "./Components/TextComponent";
 // import { ZTagPickerDropdown } from "./BugsComponent/TagPickerComponent/index";
@@ -50,7 +51,10 @@ const App = () => {
       {/* <OtpPassword /> */}
       {/* <TagPickerTypeing/> */}
       {/* <TagPickerValidation/> */}
-      <TagPickerComponent/>
+      {/* <TagPickerComponent/> */}
+      {/* <InfoIcon/> */}
+      {/* <TagPickerTypeing/> */}
+      < ZPopInfoIcon ValidValue={""}/>
     </div>
   );
 };

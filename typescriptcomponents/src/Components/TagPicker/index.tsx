@@ -25,7 +25,6 @@ interface MyComponentProps {
 const ZTagError =
   "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
 
-
 const TagPickerContainer: React.FC<MyComponentProps> = ({
   className,
   fieldName,
@@ -72,7 +71,7 @@ const TagPickerContainer: React.FC<MyComponentProps> = ({
   );
 
   return (
-    <Field className={mergeClasses(classes.ZTagContainer,className)}>
+    <Field className={mergeClasses(classes.ZTagContainer, className)}>
       <div style={{ display: "flex", gap: "5px" }}>
         {fieldName}
         <InfoLabel
