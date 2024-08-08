@@ -51,10 +51,10 @@ const App = () => {
       {/* <OtpPassword /> */}
       {/* <TagPickerTypeing/> */}
       {/* <TagPickerValidation/> */}
-      {/* <TagPickerComponent/> */}
+      <TagPickerComponent/>
       {/* <InfoIcon/> */}
       {/* <TagPickerTypeing/> */}
-      < ZPopInfoIcon ValidValue={""}/>
+      {/* < ZPopInfoIcon ValidValue={""}/> */}
     </div>
   );
 };
