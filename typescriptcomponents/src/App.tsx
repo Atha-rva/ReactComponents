@@ -1,9 +1,13 @@
 import React from "react";
-import { StepperComponent } from "./Components/Stepper";
-import { ZAccordion } from "zitics-core-ui";
-import { AccordionPanelType } from "./Components/StepperComponent/Props";
-import TagPicker from "./BugsComponent/TagPickerComponent/RenderFile";
-import RadioComponent from "./Components/RadioButton/RenderFile";
+// import { StepperComponent } from "./Components/Stepper";
+// import { ZAccordion } from "zitics-core-ui";
+// import { AccordionPanelType } from "./Components/StepperComponent/Props";
+// import TagPicker from "./BugsComponent/TagPickerComponent/RenderFile";
+// import RadioComponent from "./Components/RadioButton/RenderFile";
+import OtpPassword from "./Components/OTPPassword/Render";
+import TagPickerTypeing from "./Components/TagPicker/Render";
+import TagPickerValidation from "./Components/TagPickerwithValidation/render";
+import TagPickerComponent from "./BugsComponent/TagPickerComponent/RenderFile";
 // import { FormRenderer } from "./JSONFormat/FormRenderer";
 // import ZPresentTextBox from "./Components/TextComponent";
 // import { ZTagPickerDropdown } from "./BugsComponent/TagPickerComponent/index";
@@ -42,7 +46,11 @@ const App = () => {
       <FormRenderer template={jsonTemplate} /> */}
       {/* <StepperComponent/> */}
       {/* <TagPicker/> */}
-      <RadioComponent/>
+      {/* <RadioComponent/> */}
+      {/* <OtpPassword /> */}
+      {/* <TagPickerTypeing/> */}
+      {/* <TagPickerValidation/> */}
+      <TagPickerComponent/>
     </div>
   );
 };

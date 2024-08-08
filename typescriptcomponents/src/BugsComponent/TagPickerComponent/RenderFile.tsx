@@ -30,7 +30,7 @@ const companies = [
   ];
   
 
-const TagPicker = () => {
+const TagPickerComponent = () => {
   return (
     <div>
       <ZTagPickerDropdown zoptions={companies} multiselect/>
@@ -38,5 +38,5 @@ const TagPicker = () => {
   )
 }
 
-export default TagPicker
+export default TagPickerComponent
 

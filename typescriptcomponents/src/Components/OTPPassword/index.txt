@@ -1,0 +1,299 @@
+// import React, { useEffect, useRef, useState } from "react";
+// import { ZValidInput } from "zitics-core-ui"; // Assuming ZOtpInput is now part of this library
+
+// import { useDispatch, useSelector } from "react-redux";
+// import {
+//   updateUser,
+//   updateValidState,
+// } from "../../../../../store/slices/userSlice";
+// import { userDetailsRegistrationMessage } from "../../../../../utils/contants";
+// import { useStyles } from "./UserContactDetailscss";
+
+// type UserDetailsProps = {
+//   zemptyFiled: string[];
+//   formRef: React.Ref<HTMLFormElement>;
+// };
+
+// function formatTime(totalSeconds: number): string {
+//   const minutes = Math.floor(totalSeconds / 60);
+//   const seconds = totalSeconds % 60;
+//   return ` ${minutes > 0 ? `${minutes} min` : ""} ${
+//     seconds < 10 ? "0" : ""
+//   }${seconds} sec`;
+// }
+
+// const CountdownTimer = ({
+//   initialTime,
+//   onExpire,
+// }: {
+//   initialTime: number;
+//   onExpire?: () => void;
+// }) => {
+//   const [timeLeft, setTimeLeft] = useState<number>(initialTime);
+
+//   useEffect(() => {
+//     if (timeLeft === 0 && onExpire) {
+//       onExpire();
+//     }
+
+//     const timer = setInterval(() => {
+//       setTimeLeft((prevTime) => prevTime - 1);
+//     }, 1000);
+
+//     return () => clearInterval(timer);
+//   }, [timeLeft, onExpire]);
+
+//   return (
+//     <p style={{ margin: 0, fontSize: "10px" }}>
+//       OTP expires in {formatTime(timeLeft)}
+//     </p>
+//   );
+// };
+
+// const ZOtpInput = ({
+//   length,
+//   onOtpChange,
+//   state,
+//   validationMsg,
+// }: {
+//   length: number;
+//   onOtpChange: (otpArray: string[]) => void;
+//   state: "valid" | "invalid" | "none";
+//   validationMsg: string;
+// }) => {
+//   const inputsRef = useRef<HTMLInputElement[]>([]);
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement>,
+//     index: number
+//   ) => {
+//     const { value } = e.target;
+//     const otpArray = inputsRef.current.map((input) => input.value);
+
+//     if (value.length === 1 && index < length - 1) {
+//       inputsRef.current[index + 1]?.focus();
+//     }
+//     otpArray[index] = value;
+//     onOtpChange(otpArray);
+//   };
+
+//   const handleKeyDown = (
+//     e: React.KeyboardEvent<HTMLInputElement>,
+//     index: number
+//   ) => {
+//     if (e.key === "Backspace" && !inputsRef.current[index].value && index > 0) {
+//       inputsRef.current[index - 1]?.focus();
+//     }
+//   };
+
+//   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+//     e.preventDefault();
+//     const paste = e.clipboardData.getData("text");
+//     const otpArray = paste.split("").slice(0, length);
+
+//     otpArray.forEach((val, i) => {
+//       if (inputsRef.current[i]) {
+//         inputsRef.current[i].value = val;
+//       }
+//     });
+
+//     onOtpChange(otpArray);
+//   };
+
+//   return (
+//     <div>
+//       {Array.from({ length }).map((_, index) => (
+//         <input
+//           key={index}
+//           ref={(el) => (inputsRef.current[index] = el as HTMLInputElement)}
+//           type="text"
+//           maxLength={1}
+//           onChange={(e) => handleChange(e, index)}
+//           onKeyDown={(e) => handleKeyDown(e, index)}
+//           onPaste={handlePaste}
+//           style={{
+//             width: "40px",
+//             height: "40px",
+//             textAlign: "center",
+//             marginRight: "8px",
+//           }}
+//         />
+//       ))}
+//       {state === "invalid" && <p style={{ color: "red" }}>{validationMsg}</p>}
+//     </div>
+//   );
+// };
+
+// const UserContactDetails: React.FC<UserDetailsProps> = React.forwardRef(
+//   (props) => {
+//     const classes = useStyles();
+//     const dispatch = useDispatch();
+
+//     const [generatedOtp, setGeneratedOtp] = useState("");
+//     const [generatedEmailOtp, setGeneratedEmailOtp] = useState("");
+//     const [phoneOTPSent, setPhoneOTPSent] = useState(false);
+//     const [emailOTPSent, setEmailOTPSent] = useState(false);
+
+//     const phoneOTPCountdown = 5 * 60; // 5 mins for OTP to expire
+//     const emailOTPCountdown = 5 * 60; // 5 mins for OTP to expire
+
+//     // Function to generate OTP
+//     const generateOtp = () => {
+//       let otp = "";
+//       for (let i = 0; i < 4; i++) {
+//         otp += Math.floor(Math.random() * 10);
+//       }
+
+//       setPhoneOTPSent(true);
+//       setGeneratedOtp("1234"); // currently OTP set to 1234
+//     };
+
+//     const generateEmailOtp = () => {
+//       let emailOtp = "";
+//       for (let i = 0; i < 4; i++) {
+//         emailOtp += Math.floor(Math.random() * 10);
+//       }
+
+//       setEmailOTPSent(true);
+//       setGeneratedEmailOtp("1234"); // currently OTP set to 1234
+//     };
+
+//     // Function to handle OTP change
+//     const handleOTPChange = (enteredOtpArray: string[]) => {
+//       const enteredOtp = enteredOtpArray.join("");
+//       if (enteredOtp === generatedOtp) {
+//         dispatch(updateValidState({ phoneOTP: "valid" }));
+//       } else if (enteredOtp.length === 4) {
+//         dispatch(updateValidState({ phoneOTP: "invalid" }));
+//       } else {
+//         dispatch(updateValidState({ phoneOTP: "none" }));
+//       }
+//     };
+
+//     const handleEmailOTPChange = (enteredOtpArray: string[]) => {
+//       const enteredEmailOtp = enteredOtpArray.join("");
+
+//       if (enteredEmailOtp === generatedEmailOtp) {
+//         dispatch(updateValidState({ emailOTP: "valid" }));
+//       } else if (enteredEmailOtp.length === 4) {
+//         dispatch(updateValidState({ emailOTP: "invalid" }));
+//       } else {
+//         dispatch(updateValidState({ emailOTP: "none" }));
+//       }
+//     };
+
+//     const userData: any = useSelector((state: any) => {
+//       return state.users;
+//     });
+//     let mobileRef = useRef<HTMLInputElement | null>(null);
+//     let emailRef = useRef<HTMLInputElement | null>(null);
+
+//     const onInputHandler = () => {
+//       let mobilePhone: string = "";
+//       let email: string = "";
+
+//       if (mobileRef.current && emailRef.current) {
+//         mobilePhone = mobileRef.current.value;
+//         email = emailRef.current.value;
+//         dispatch(updateUser({ mobilePhone, email }));
+//       }
+//     };
+
+//     const handleGetValidState = (
+//       validStateLocal: "valid" | "invalid" | "none",
+//       type: string
+//     ) => {
+//       dispatch(updateValidState({ [type]: validStateLocal }));
+//     };
+
+//     useEffect(() => {
+//       document.title = "PAPS | Register-ContactDetails";
+
+//       generateOtp();
+//       generateEmailOtp();
+//     }, []);
+
+//     return (
+//       <form ref={props.formRef} className={classes.personalDetailsFormStyle}>
+//         <ZValidInput
+//           getValidState={(validStateLocal) => {
+//             handleGetValidState(validStateLocal, "mobilePhone");
+//           }}
+//           className={classes.personalDetailsInputContainer}
+//           fieldProps={{ className: classes.label }}
+//           zlabel={userDetailsRegistrationMessage.mobileNoLabel}
+//           name="mobilePhone"
+//           zrequired
+//           zverify="mobile"
+//           zErrorMessage="Invalid OTP"
+//           placeholder={userDetailsRegistrationMessage.mobileNOPlaceholder}
+//           zvalidState={userData.validStates.mobilePhone}
+//           ref={mobileRef}
+//           value={userData.mobilePhone}
+//           onInput={onInputHandler}
+//           resendOTP={phoneOTPSent}
+//           handleOTP={generateOtp}
+//         />
+//         <div className={classes.otpContainer}>
+//           <ZOtpInput
+//             length={4}
+//             onOtpChange={handleOTPChange}
+//             state={userData.validStates.phoneOTP}
+//             validationMsg="Invalid OTP"
+//           />
+//           {(generatedOtp.length !== 0 &&
+//             userData.validStates.phoneOTP === "invalid") ||
+//           userData.validStates.phoneOTP === "none" ? (
+//             <CountdownTimer
+//               initialTime={phoneOTPCountdown}
+//               onExpire={() => {
+//                 setGeneratedOtp("");
+//               }}
+//             />
+//           ) : null}
+//         </div>
+
+//         <ZValidInput
+//           getValidState={(validStateLocal) => {
+//             handleGetValidState(validStateLocal, "email");
+//           }}
+//           className={classes.personalDetailsInputContainer}
+//           fieldProps={{ className: classes.label }}
+//           zlabel={userDetailsRegistrationMessage.emailLabel}
+//           name="email"
+//           zrequired
+//           zErrorMessage="Invalid Email"
+//           zverify="email"
+//           placeholder={userDetailsRegistrationMessage.emailPlaceholder}
+//           zvalidState={userData.validStates.email}
+//           value={userData.email}
+//           ref={emailRef}
+//           onInput={onInputHandler}
+//           handleOTP={generateEmailOtp}
+//           resendOTP={emailOTPSent}
+//         />
+
+//         <div className={classes.otpContainer}>
+//           <ZOtpInput
+//             length={4}
+//             onOtpChange={handleEmailOTPChange}
+//             state={userData.validStates.emailOTP}
+//             validationMsg="Invalid OTP"
+//           />
+//           {(generatedEmailOtp.length !== 0 &&
+//             userData.validStates.emailOTP === "invalid") ||
+//           userData.validStates.emailOTP === "none" ? (
+//             <CountdownTimer
+//               initialTime={emailOTPCountdown}
+//               onExpire={() => {
+//                 setGeneratedEmailOtp("");
+//               }}
+//             />
+//           ) : null}
+//         </div>
+//       </form>
+//     );
+//   }
+// );
+
+// export default UserContactDetails;
