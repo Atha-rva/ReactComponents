@@ -1,5 +1,7 @@
+
+
 import React, { useEffect, useState } from "react";
-import { useStyles } from "./style";
+
 import { colorSchema } from "../../assets/desginPattern/colors/colorsSchema";
 import {
   Divider,
@@ -8,14 +10,13 @@ import {
   Option,
   mergeClasses,
   Button,
+  Image,
 } from "@fluentui/react-components";
 import { CaretDownFilled, CaretUpFilled } from "@fluentui/react-icons";
 import { dropdowntype } from "./Props";
 import { Lato } from "../../assets/desginPattern/font/fontFamily/golbalFontFamily";
-import { ZLogo } from "zitics-core-ui";
-
-const ZTagError =
-  "https://s3.ap-south-1.amazonaws.com/dev.zitics.com/media/core/assets/image/TagError.svg";
+import { useStyles } from "./ZTagpickerwithDropdownStyle";
+// import { ZTagError } from "../../assets/Images/Images";
 
 export const ZTagPickerDropdown = React.forwardRef<
   HTMLButtonElement,
@@ -29,7 +30,8 @@ export const ZTagPickerDropdown = React.forwardRef<
   const [crossAxis] = React.useState(0);
   const [mainAxis] = React.useState(5);
 
-  const {
+    const {
+      id,
     zvalidState,
     zoptions = [],
     zrequired,
@@ -37,6 +39,9 @@ export const ZTagPickerDropdown = React.forwardRef<
     placeholder,
     onSelectOption,
     selectedOptions = [],
+    isVisible = true,
+      disabled = false,
+      handleChange,
     ...rest
   } = props;
 
@@ -67,10 +72,6 @@ export const ZTagPickerDropdown = React.forwardRef<
       newSelectedOptions = [optionValue];
     }
     setCurrentSelectedOptions(newSelectedOptions);
-
-    // You can now use newSelectedOptions for further data processing
-    console.log("Selected options:", newSelectedOptions);
-
     if (onSelectOption) {
       onSelectOption(newSelectedOptions);
     }
@@ -102,7 +103,12 @@ export const ZTagPickerDropdown = React.forwardRef<
 
     return (
       <div
-        className={mergeClasses(styles.selectedOption, styles.flexContainer)}
+        className={mergeClasses(
+          styles.selectedOption,
+          styles.flexContainer,
+          !isVisible && styles.invisible,
+          disabled && styles.disabled
+        )}
       >
         {multiselect && hasSelectedOptions ? (
           <>
@@ -136,7 +142,7 @@ export const ZTagPickerDropdown = React.forwardRef<
               }}
               className={styles.clearAllButton}
             >
-              <ZLogo src={ZTagError} />
+              {/* <Image src={ZTagError} /> */}
             </Button>
           </>
         ) : (
@@ -149,6 +155,14 @@ export const ZTagPickerDropdown = React.forwardRef<
   useEffect(() => {
     if (zvalidState) setValidState(zvalidState);
   }, [zvalidState]);
+    
+    useEffect(() => {
+        if (handleChange)
+            handleChange({
+                key: id,
+                info: { value: currentSelectedOptions, validState }
+            });
+    }, [currentSelectedOptions, validState]);
 
   return (
     <Field label={props.zlabel}>

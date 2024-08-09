@@ -1,5 +1,5 @@
 import { Checkbox, CheckboxProps, Field } from "@fluentui/react-components";
-import React from "react";
+import React, { useState } from "react";
 import { makeStaticStyles, makeStyles } from "zitics-core-ui";
 
 type MyComponentProps = CheckboxProps & {
@@ -7,6 +7,7 @@ type MyComponentProps = CheckboxProps & {
   Zcheckboxlabel: string[];
   className?: string;
   style?: React.CSSProperties;
+  onOptionSelect?: (selectedValues: string[]) => void; // Add this prop
 };
 
 const useStaticStyles = makeStaticStyles({
@@ -37,10 +38,27 @@ const ZCheckBoxBtn: React.FC<MyComponentProps> = ({
   Zcheckboxlabel = [],
   className = "",
   style = {},
+  onOptionSelect,
   ...props
 }) => {
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const styles = useStyles();
   useStaticStyles();
+
+  const handleCheckboxChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    value: string
+  ) => {
+    const newSelectedValues = event.target.checked
+      ? [...selectedValues, value]
+      : selectedValues.filter((v) => v !== value);
+
+    setSelectedValues(newSelectedValues);
+
+    if (onOptionSelect) {
+      onOptionSelect(newSelectedValues);
+    }
+  };
 
   return (
     <Field>
@@ -53,6 +71,7 @@ const ZCheckBoxBtn: React.FC<MyComponentProps> = ({
             size="large"
             label={activity}
             style={style}
+            onChange={(e) => handleCheckboxChange(e, activity)}
             {...props}
           />
         ))}
